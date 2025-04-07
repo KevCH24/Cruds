@@ -1,0 +1,9 @@
+[package]
+name = "inventory-manager"
+version = "0.1.0"
+edition = "2021"  # ¡Asegúrate de que sea 2021!
+
+[dependencies]
+soroban-sdk = "22.0.7"  # Versión actualizada
+
+[lib]crate-type["cdylib"]
