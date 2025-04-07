@@ -1,9 +1,20 @@
 [package]
-name = "inventory-manager"
+name = "inventory_contract"
 version = "0.1.0"
-edition = "2021"  # ¡Asegúrate de que sea 2021!
+edition = "2021"
 
 [dependencies]
-soroban-sdk = "22.0.7"  # Versión actualizada
+# Usamos la versión que tu error indica está "locked"
+soroban-sdk = "22.0.7"
+# --- ASEGÚRATE DE QUE NO HAYA OTRA LÍNEA PIDIENDO 'soroban-sdk' CON FEATURES ---
 
-[lib]crate-type["cdylib"]
+# --- PUEDE HABER OTRAS DEPENDENCIAS AQUÍ ---
+
+[lib]
+crate-type = ["cdylib"]
+
+# --- ASEGÚRATE DE QUE LA SECCIÓN [features] ESTÉ ASÍ ---
+[features]
+default = [] # <- ¡Importante! Debe estar vacío.
+# La línea std = ["soroban-sdk/std"] DEBE SER ELIMINADA.
+testutils = ["soroban-sdk/testutils"] # <- Esta está bien, déjala si la necesitas para tests.
