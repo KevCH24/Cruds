@@ -81,7 +81,7 @@ impl InventoryContract {
             .persistent()
             .get(&PRODUCTS_KEY)
              // Si el mapa PRODUCTS no existe, no hay nada que actualizar, panic.
-            .expect("Mapa de productos no inicializado. Añade productos primero.");
+            .expect("Mapa de productos NO inicializado. Añade productos primero.");
 
         // Verificamos que el producto EXISTA antes de intentar actualizarlo
         if !products.contains_key(name.clone()) {
