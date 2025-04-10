@@ -85,7 +85,7 @@ impl InventoryContract {
 
         // Verificamos que el producto EXISTA antes de intentar actualizarlo
         if !products.contains_key(name.clone()) {
-            panic!("Producto no encontrado para actualizar"); // Error si no existe
+            panic!("Producto NO encontrado para actualizar"); // Error si no existe
         }
 
         // Creamos el nuevo vector de datos [cantidad, precio]
