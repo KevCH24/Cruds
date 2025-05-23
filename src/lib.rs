@@ -117,4 +117,14 @@ impl InventoryContract {
         // Guardamos el mapa (posiblemente modificado) de vuelta al almacenamiento
         env.storage().persistent().set(&PRODUCTS_KEY, &products);
     }
+
+    // --- READ ALL (Leer Todos) ---
+    /// Obtiene todos los productos del inventario.
+    ///
+    /// # Returns
+    ///
+    /// * `Map<String, Vec<i32>>` - Un mapa con todos los productos.
+    pub fn get_all_products(env: Env) -> Map<String, Vec<i32>> {
+        env.storage().persistent().get(&PRODUCTS_KEY).unwrap_or(Map::new(&env))
+    }
 }
