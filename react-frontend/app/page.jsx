@@ -104,6 +104,12 @@ function HomePage() {
       return;
     }
 
+    // Verificar si el producto ya existe en la lista actual de productos
+    if (products.find(p => p.name.toLowerCase() === newProductName.toLowerCase())) {
+      setError(`El producto "${newProductName}" ya existe. Por favor, elige un nombre diferente.`);
+      return;
+    }
+
     setIsLoading(true);
     setError(null);
     try {
@@ -156,7 +162,7 @@ function HomePage() {
 
       {!freighterConnected && (
         <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-          <button onClick={handleConnectWallet} disabled={isLoading} style={{ padding: '10px 15px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
+          <button onClick={handleConnectWallet} disabled={isLoading} style={{ padding: '10px 15px', backgroundColor: 'red', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
             {isLoading ? 'Conectando...' : 'Conectar Wallet Freighter'}
           </button>
         </div>
